@@ -1,0 +1,251 @@
+{
+  "schema_version": "1.0.0",
+  "generated_at": "2026-03-20T14:50:49+00:00",
+  "profile_path": "/Users/xueyuan/Desktop/ai-agent-course-code/.claude/project-profile.json",
+  "schema": {
+    "draft": "https://json-schema.org/draft/2020-12/schema",
+    "file": "/Users/xueyuan/.codex/scripts/project-profile.schema.json"
+  },
+  "repo": {
+    "name": "ai-agent-course-code",
+    "root": "/Users/xueyuan/Desktop/ai-agent-course-code",
+    "summary": "后端主导遗留混合单体",
+    "classification": "backend",
+    "project_mode": "后端主导遗留混合单体",
+    "confidence": 0.98
+  },
+  "analysis": {
+    "scores": {
+      "backend": 89,
+      "frontend": 4,
+      "data": 5,
+      "ml": 0,
+      "scheduler": 0,
+      "ops": 0,
+      "legacy": 4
+    },
+    "notes": [],
+    "key_paths": {
+      "backend": [
+        "."
+      ]
+    },
+    "commands": {
+      "run": [],
+      "test": [],
+      "lint": [],
+      "build": [],
+      "env": null
+    },
+    "documents": {
+      "project_claude": null,
+      "root_claude": null,
+      "project_agents": null,
+      "memory_index": null
+    },
+    "child_projects": [
+      {
+        "name": "cron-job-tool",
+        "root": "/Users/xueyuan/Desktop/ai-agent-course-code/cron-job-tool",
+        "relative_path": "cron-job-tool",
+        "kind": "node",
+        "manifest_files": [
+          "package.json"
+        ],
+        "profile_path": "/Users/xueyuan/Desktop/ai-agent-course-code/cron-job-tool/.claude/project-profile.json"
+      },
+      {
+        "name": "hello-nest-langchain",
+        "root": "/Users/xueyuan/Desktop/ai-agent-course-code/hello-nest-langchain",
+        "relative_path": "hello-nest-langchain",
+        "kind": "node",
+        "manifest_files": [
+          "package.json"
+        ],
+        "profile_path": "/Users/xueyuan/Desktop/ai-agent-course-code/hello-nest-langchain/.claude/project-profile.json"
+      },
+      {
+        "name": "memory-test",
+        "root": "/Users/xueyuan/Desktop/ai-agent-course-code/memory-test",
+        "relative_path": "memory-test",
+        "kind": "node",
+        "manifest_files": [
+          "package.json"
+        ],
+        "profile_path": "/Users/xueyuan/Desktop/ai-agent-course-code/memory-test/.claude/project-profile.json"
+      },
+      {
+        "name": "milvus-test",
+        "root": "/Users/xueyuan/Desktop/ai-agent-course-code/milvus-test",
+        "relative_path": "milvus-test",
+        "kind": "node",
+        "manifest_files": [
+          "package.json"
+        ],
+        "profile_path": "/Users/xueyuan/Desktop/ai-agent-course-code/milvus-test/.claude/project-profile.json"
+      },
+      {
+        "name": "output-parser-test",
+        "root": "/Users/xueyuan/Desktop/ai-agent-course-code/output-parser-test",
+        "relative_path": "output-parser-test",
+        "kind": "node",
+        "manifest_files": [
+          "package.json"
+        ],
+        "profile_path": "/Users/xueyuan/Desktop/ai-agent-course-code/output-parser-test/.claude/project-profile.json"
+      },
+      {
+        "name": "prompt-template-test",
+        "root": "/Users/xueyuan/Desktop/ai-agent-course-code/prompt-template-test",
+        "relative_path": "prompt-template-test",
+        "kind": "node",
+        "manifest_files": [
+          "package.json"
+        ],
+        "profile_path": "/Users/xueyuan/Desktop/ai-agent-course-code/prompt-template-test/.claude/project-profile.json"
+      },
+      {
+        "name": "rag-test",
+        "root": "/Users/xueyuan/Desktop/ai-agent-course-code/rag-test",
+        "relative_path": "rag-test",
+        "kind": "node",
+        "manifest_files": [
+          "package.json"
+        ],
+        "profile_path": "/Users/xueyuan/Desktop/ai-agent-course-code/rag-test/.claude/project-profile.json"
+      },
+      {
+        "name": "runnable-test",
+        "root": "/Users/xueyuan/Desktop/ai-agent-course-code/runnable-test",
+        "relative_path": "runnable-test",
+        "kind": "node",
+        "manifest_files": [
+          "package.json"
+        ],
+        "profile_path": "/Users/xueyuan/Desktop/ai-agent-course-code/runnable-test/.claude/project-profile.json"
+      },
+      {
+        "name": "tool-test",
+        "root": "/Users/xueyuan/Desktop/ai-agent-course-code/tool-test",
+        "relative_path": "tool-test",
+        "kind": "node",
+        "manifest_files": [
+          "package.json"
+        ],
+        "profile_path": "/Users/xueyuan/Desktop/ai-agent-course-code/tool-test/.claude/project-profile.json"
+      }
+    ],
+    "stack_adapters": [
+      "node",
+      "ops"
+    ],
+    "fingerprint_config": {
+      "include": [],
+      "exclude": [],
+      "max_age_days": 7
+    },
+    "project_doctor_config": {
+      "path": "/Users/xueyuan/Desktop/ai-agent-course-code/.claude/project-doctor.json",
+      "status": "exists"
+    }
+  },
+  "recommendations": {
+    "primary_route": "/api",
+    "primary_skill": "legacy-flask-tornado",
+    "routes": [
+      {
+        "name": "/api",
+        "kind": "backend",
+        "reason": "接口、鉴权、错误码、下载与回调链路优先"
+      },
+      {
+        "name": "/db",
+        "kind": "database",
+        "reason": "模型、SQL、事务、索引与 ORM 边界优先"
+      },
+      {
+        "name": "/scheduler",
+        "kind": "backend-ops",
+        "reason": "调度器、后台任务、队列与异步链路优先"
+      },
+      {
+        "name": "/ops",
+        "kind": "ops",
+        "reason": "启动、部署、环境变量、日志与依赖状态优先"
+      },
+      {
+        "name": "/optimize",
+        "kind": "data",
+        "reason": "数据链路、算法、计算性能与瓶颈优先"
+      }
+    ],
+    "skills": [
+      {
+        "name": "legacy-flask-tornado",
+        "kind": "backend",
+        "reason": "适合 Flask + Tornado + 模板混合老系统入口梳理"
+      },
+      {
+        "name": "api-designer",
+        "kind": "api",
+        "reason": "适合接口模型、鉴权、错误码与契约设计"
+      },
+      {
+        "name": "mysql-orm-dual-stack",
+        "kind": "database",
+        "reason": "适合 Peewee/SQLAlchemy/MySQL 混用项目"
+      },
+      {
+        "name": "scheduler-queue-debugger",
+        "kind": "backend-ops",
+        "reason": "适合 APScheduler、Redis 队列与 worker 链路"
+      },
+      {
+        "name": "runtime-ops-triage",
+        "kind": "ops",
+        "reason": "适合运行时、部署、日志和环境排障"
+      },
+      {
+        "name": "python-pro",
+        "kind": "python",
+        "reason": "适合 Python 代码实现、重构和算法工程化"
+      },
+      {
+        "name": "database-optimizer",
+        "kind": "database",
+        "reason": "适合查询、索引与执行计划优化"
+      }
+    ],
+    "skill_pack": [
+      "legacy-flask-tornado",
+      "api-designer",
+      "mysql-orm-dual-stack",
+      "scheduler-queue-debugger",
+      "runtime-ops-triage",
+      "python-pro",
+      "database-optimizer"
+    ],
+    "route_skill_map": {
+      "/api": "api-designer",
+      "/db": "mysql-orm-dual-stack",
+      "/scheduler": "scheduler-queue-debugger",
+      "/ops": "runtime-ops-triage",
+      "/optimize": "python-pro"
+    },
+    "avoid": [
+      "看到页面目录不等于当前任务是前端问题",
+      "接口现象先查请求入口、权限、数据访问和后台任务，再决定是否下钻 UI",
+      "项目级规范和机器画像要分层，避免把决策写死在单份自然语言文档里"
+    ],
+    "project_mode": "后端主导遗留混合单体"
+  },
+  "fingerprint": {
+    "digest": "139701dd3c76f0285a2d6ec97496a5117d7e28a9c3cf78e726383a9b44726678",
+    "max_age_days": 7,
+    "strategy": "core+stack+override"
+  },
+  "cache": {
+    "status": "cache-hit",
+    "reason": "命中本地项目画像缓存"
+  }
+}

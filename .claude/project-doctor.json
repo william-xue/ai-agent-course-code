@@ -1,0 +1,12 @@
+{
+  "fingerprint": {
+    "include": [],
+    "exclude": [],
+    "max_age_days": 7
+  },
+  "_meta": {
+    "generated_by": "project-doctor.py",
+    "purpose": "项目级覆盖配置；默认只补充结构指纹，若当前项目存在特例，也可按需追加 route_skill_map / skill_candidates / task_rules",
+    "path": "/Users/xueyuan/Desktop/ai-agent-course-code/.claude/project-doctor.json"
+  }
+}
