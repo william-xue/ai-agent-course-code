@@ -71,3 +71,14 @@ export default defineConfig([
   },
 ])
 ```
+
+## 项目联调配置（已验证）
+
+本项目前后端联调时，后端模型提供方使用以下配置可正常工作：
+
+- `OPENAI_BASE_URL=https://api.siliconflow.cn/v1`
+- `MODEL_NAME=Qwen/Qwen2.5-7B-Instruct`
+
+`OPENAI_API_KEY` 仅保存在本地 `agui-backend/.env`，不要把真实 Key 明文写入 README 或提交到仓库。
+
+`BOCHA_API_KEY` 也仅保存在本地 `agui-backend/.env`，不要在文档中明文记录。
