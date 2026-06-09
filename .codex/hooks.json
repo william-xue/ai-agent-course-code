@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd /Users/xueyuan/Desktop/ai-agent-course-code && git fetch origin 2>/dev/null; NEW=$(git log HEAD..origin/main --oneline 2>/dev/null); if [ -n \"$NEW\" ]; then COUNT=$(echo \"$NEW\" | wc -l | tr -d ' '); echo \"{\\\"systemMessage\\\": \\\"[远程更新] 发现 $COUNT 个新提交，请告知用户并询问是否 pull\\\"}\"; else echo \"{\\\"systemMessage\\\": \\\"[远程同步] 已是最新，无新提交\\\"}\"; fi",
+            "timeout": 15,
+            "statusMessage": "检查远程更新..."
+          }
+        ]
+      }
+    ]
+  }
+}
