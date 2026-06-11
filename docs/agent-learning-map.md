@@ -12,6 +12,27 @@
 - 学完必须写“迁移到 TEAP Agent 时怎么用”。
 - 不在这里接 TEAP 真实业务数据，不写 TEAP 专用实现。
 - 不追框架名，优先掌握可迁移机制。
+- 评估 agent 时不看“像不像”，看成功路径是否可解释、失败原因是否可定位、危险动作是否可拦截、质量是否可评测。
+
+## 我们的 Agent 工程标准
+
+标准笔记：
+
+- `.claude/notes/2026-06-10-agent-engineering-standards.md`
+
+核心判断：
+
+```text
+Agent 的难点不是“做得像人”，而是“失败时不像随机人”。
+```
+
+后续学习和 TEAP Agent 迁移都按这个标准看：
+
+- LLM 负责理解人话、拆解意图、提出候选动作、解释结果、生成草案。
+- 代码、规则引擎、仿真器、优化器、校验器负责业务事实、确定性计算、权限和落盘动作。
+- tool calling 必须有 schema 校验、权限边界、`toolCallId` trace 和错误回填。
+- RAG 必须返回可追踪的证据包，不把大量原始资料直接塞给模型。
+- 没有 eval / trace / 失败复现的 agent，只能算 demo，不能算可靠系统。
 
 ## 三条仓库分工
 
@@ -243,6 +264,36 @@ load model
 docs/learning-notes/YYYY-MM-DD-topic.md
 ```
 
+## 学习机制：每天一个文件夹
+
+目标不是把所有代码背下来，而是每天把一个文件夹学成一张可恢复、可迁移的能力卡。
+
+每天固定流程：
+
+1. 按 `AGENTS.md` 先检查远端更新。
+2. 选定当天文件夹，只学一个主机制。
+3. 先读入口、依赖、核心调用链，再决定要不要运行脚本。
+4. 用自己的话回答三个问题：
+   - 这个文件夹解决什么工程问题？
+   - 核心调用链是什么？
+   - 这个机制迁移到 TEAP Agent 时对应什么能力？
+5. 写入 `docs/learning-notes/YYYY-MM-DD-topic.md`。
+6. 更新下面的学习台账和 `.claude/todo/.last-session.md`。
+
+学习状态分级：
+
+| 状态 | 含义 | 下一步 |
+|---|---|---|
+| `理解通过` | 能复述机制和调用链，但还没亲手复现 | 做一个 30-60 分钟小实操 |
+| `实战通过` | 能独立写最小 demo，并看懂运行结果 | 进入下一个文件夹 |
+| `待补` | 主线还没讲清或依赖没跑通 | 下次继续同一文件夹 |
+
+## 学习台账
+
+| 日期 | 文件夹 / 主题 | 实际学习内容 | 学习成果 | 待完成 | 状态 |
+|---|---|---|---|---|---|
+| 2026-06-10 | `tool-test/` / Tool Calling + MCP | 梳理 `hello-langchain.mjs`、`tool-file-read.mjs`、`all-tools.mjs`、`mini-cursor.mjs`、`my-mcp-server.mjs`、`langchain-mcp-test.mjs`、`mcp-test.mjs`；理解 `tool_calls`、`ToolMessage`、agent loop、MCP tool 与普通 tool 的关系；讨论业务函数如何改造成模型可调用 tool。 | 能复述“模型只返回工具调用请求，Node.js 执行工具，ToolMessage 回填结果”；能区分普通 tool 与 MCP 接入层；能说出 tool 设计需要 `name` / `description` / `schema` / 稳定返回 / 副作用边界。 | 补一次实操：新建 `query_user_by_id` 练习 tool，打印真实 `response.tool_calls`，跑通工具结果回填和最终回复。 | `理解通过` |
+
 ## Resume 入口
 
 触发词：
@@ -265,10 +316,10 @@ docs/learning-notes/YYYY-MM-DD-topic.md
 
 ## 当前推荐下一步
 
-从 **Tool Calling / 工具调用** 开始。
+继续 **Tool Calling / 工具调用** 的实操复现。
 
 原因：
 
-- TEAP Agent 的核心不是聊天，而是调用确定性工具。
-- 后续 structured output、change set、eval 都建立在工具调用之上。
-- 先学 tool calling，最容易和 `validateTeapModel`、`locateIssue`、`createChangeSet` 建立对应关系。
+- 2026-06-10 已完成 `tool-test/` 的概念理解，状态是 `理解通过`。
+- 还需要补一次最小实操，把 `queryUserById` 包装成 `query_user_by_id` tool。
+- 实操通过后，再进入 `output-parser-test/` 学 structured output。
